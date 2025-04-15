@@ -4,7 +4,7 @@ import { attempt } from './attempt'
 
 describe('attempt', () => {
   test('should return the result of the operation', async () => {
-    const operation = async () => 42
+    const operation = async (): Promise<number> => 42
     const [error, result] = await attempt(operation)
 
     expect(error).toBeNull()
@@ -12,7 +12,7 @@ describe('attempt', () => {
   })
 
   test('should return an error if the operation throws', async () => {
-    const operation = async () => {
+    const operation = async (): Promise<Error> => {
       throw new Error('Test error')
     }
     const [error, result] = await attempt(operation)
@@ -22,7 +22,7 @@ describe('attempt', () => {
   })
 
   test('should return an error if the operation returns a rejected promise', async () => {
-    const operation = async () => await Promise.reject(new Error('Test error'))
+    const operation = async (): Promise<never> => await Promise.reject(new Error('Test error'))
     const [error, result] = await attempt(operation)
 
     expect(error).toBeInstanceOf(Error)
