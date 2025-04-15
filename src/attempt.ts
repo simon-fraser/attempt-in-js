@@ -25,13 +25,12 @@
  * ```
  */
 export const attempt = async <T = unknown>(
-    operation: () => Promise<T>
-  ): Promise<[Error | null, T | null]> => {
-    try {
-      const result = await operation();
-      return [null, result];
-    } catch (error) {
-      return [error as Error, null];
-    }
-  };
-  
+  operation: () => Promise<T>
+): Promise<[Error | null, T | null]> => {
+  try {
+    const result = await operation()
+    return [null, result]
+  } catch (error) {
+    return [error as Error, null]
+  }
+}

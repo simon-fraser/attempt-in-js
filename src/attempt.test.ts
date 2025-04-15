@@ -1,31 +1,31 @@
-import { describe, test, expect } from "vitest";
+import { describe, test, expect } from 'vitest'
 
-import { attempt } from "./attempt";
+import { attempt } from './attempt'
 
-describe("attempt", () => {
-  test("should return the result of the operation", async () => {
-    const operation = async () => 42;
-    const [error, result] = await attempt(operation);
+describe('attempt', () => {
+  test('should return the result of the operation', async () => {
+    const operation = async () => 42
+    const [error, result] = await attempt(operation)
 
-    expect(error).toBeNull();
-    expect(result).toEqual(42);
-  });
+    expect(error).toBeNull()
+    expect(result).toEqual(42)
+  })
 
-  test("should return an error if the operation throws", async () => {
+  test('should return an error if the operation throws', async () => {
     const operation = async () => {
-      throw new Error("Test error");
-    };
-    const [error, result] = await attempt(operation);
+      throw new Error('Test error')
+    }
+    const [error, result] = await attempt(operation)
 
-    expect(error).toBeInstanceOf(Error);
-    expect(result).toBeNull();
-  });
+    expect(error).toBeInstanceOf(Error)
+    expect(result).toBeNull()
+  })
 
-  test("should return an error if the operation returns a rejected promise", async () => {
-    const operation = () => Promise.reject(new Error("Test error"));
-    const [error, result] = await attempt(operation);
+  test('should return an error if the operation returns a rejected promise', async () => {
+    const operation = async () => await Promise.reject(new Error('Test error'))
+    const [error, result] = await attempt(operation)
 
-    expect(error).toBeInstanceOf(Error);
-    expect(result).toBeNull();
-  });
-});
+    expect(error).toBeInstanceOf(Error)
+    expect(result).toBeNull()
+  })
+})
