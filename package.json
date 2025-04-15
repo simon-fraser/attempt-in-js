@@ -6,7 +6,7 @@
   "author": "Simon Fraser",
   "repository": {
     "type": "git",
-    "url": "https://github.com/simon-fraser/Attempt.git"
+    "url": "https://github.com/simon-fraser/attempt-in-js.git"
   },
   "type": "module",
   "exports": {

@@ -4,14 +4,18 @@ Simplified error management for operations.
 
 ## Table of Contents
 
+- [Usage](#usage)
 - [Installation](#installation)
 - [Local Usage](#local-usage)
-- [Contributing](#contributing)
+
+## Usage
+
+TBC via NPM.
 
 ## Installation
 
 ```bash
-git clone https://github.com/simon-fraser/Attempt.git
+git clone https://github.com/simon-fraser/attempt-in-js.git
 cd Attempt
 npm install
 ```
