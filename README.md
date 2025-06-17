@@ -1,26 +1,34 @@
 # Node Attempt
 
-Simplified error management for operations.
+Simplified promise error management and handling.
 
-## Table of Contents
+## Install
 
-- [Usage](#usage)
-- [Installation](#installation)
-- [Local Usage](#local-usage)
+```bash
+npm i attempt-in-js
+```
 
 ## Usage
 
-TBC via NPM.
+```typescript
+import { attempt } from 'attempt-in-js'
 
-## Installation
+const [error, result] = await attempt(async () => await fetchData());
+
+if (error) {
+  console.error("Operation failed:", error);
+} else {
+  console.log("Operation succeeded:", result);
+}
+```
+
+## Local
 
 ```bash
 git clone https://github.com/simon-fraser/attempt-in-js.git
 cd Attempt
 npm install
 ```
-
-## Local Usage
 
 You can build and test locally via
 
